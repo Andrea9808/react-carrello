@@ -1,0 +1,30 @@
+.cart-item {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item-image {
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .cart-item-name {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .cart-item-quantity, .cart-item-price {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 576px) {
+    .cart-item-name {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -1,35 +1,29 @@
-import React from 'react'
-import products from '../products'
-import CartItem from './CartItem'
-import '../Cart.css'
-import {MdRemoveShoppingCart} from 'react-icons/md'
+import React from 'react';
+import '../Cart.css';
+import { MdRemoveShoppingCart } from 'react-icons/md';
+import CartItem from './CartItem';
+import products from '../products';
 
 const Cart = () => {
   return (
-    <section style={{ margin: '2rem' }}>
+    <section className='text-center' style={{ margin: '2rem' }}>
       <div className='row'>
-        <div className='col-12 d-flex justify-content-between align-items-center custom-gap'>
-          <h6 className='flex-grow-1 text-center'>Item</h6>
-          <h6 className='flex-grow-1 text-center'>Nome</h6>
-          <h6 className='flex-grow-1 text-center'>Qty</h6>
-          <h6 className='flex-grow-1 text-center'>Prezzo</h6>
-          <button className='btn btn-danger'>
+        <div className='col-12'>
+          <div className='d-flex justify-content-between align-items-center custom-gap'>
+            <h4>Carrello</h4>
+            <button className='btn btn-danger'>
+            <span className='mx-2 d-none d-lg-inline-block'>Rimuovi tutto dal carrello</span>
             <MdRemoveShoppingCart />
-          </button>
+            </button>
+          </div>
         </div>
       </div>
       <hr />
-      <section>
-        {
-          products.map((el => {
-            return (
-              <CartItem key={el._id} {...el} />
-            )
-          }))
-        }
-      </section>
+      {products.map((el) => (
+        <CartItem key={el._id} {...el} />
+      ))}
     </section>
   );
 };
 
-export default Cart
+export default Cart;

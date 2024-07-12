@@ -1,22 +1,24 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from "./components/Navbar";
-import Cart from "./components/Cart";
-import TotalBox from "./components/TotalBox";
-import Loading from "./components/Loading";
-import { useGlobalContext } from './context/context';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import Navbar from "./components/Navbar"; 
+import Cart from "./components/Cart"; 
+import TotalBox from "./components/TotalBox"; 
+import Loading from "./components/Loading"; 
+import { useGlobalContext } from './context/context'; 
 
 function App() {
+   // utilizza il contesto globale per ottenere i valori isLoading, products e total
   const { isLoading, products, total } = useGlobalContext();
 
-  console.log('isLoading:', isLoading); // Debugging
-  console.log('products:', products); // Debugging
+  console.log('isLoading:', isLoading); //debugging
+  console.log('products:', products); // debugging
 
-  if (isLoading) {
+  // verifica se isLoading è true
+  if (isLoading) { 
     return (
       <div>
-        <Navbar />
+        <Navbar /> 
         <div className="center-item">
-          <Loading />
+          <Loading /> 
         </div>
       </div>
     );
@@ -24,18 +26,21 @@ function App() {
 
   return (
     <div>
-      <Navbar />
-      {products.length > 0 ? (
-        <Cart />
+      <Navbar /> 
+      {/* verifica se ci sono prodotti nel carrello */}
+      {products.length > 0 ? ( 
+        // se ci sono prodotti, mostra il componente Cart
+        <Cart /> 
       ) : (
         <div className="center-item">
-          <h2>Il carrello è vuoto</h2>
+          {/* se non ci sono prodotti, mostra un messaggio che il carrello è vuoto */}
+          <h2>Il carrello è vuoto</h2> 
         </div>
       )}
-      {total > 0 && <TotalBox />}
-      
+      {/* mostra il componente TotalBox solo se il totale è maggiore di zero */}
+      {total > 0 && <TotalBox />} 
     </div>
   );
 }
 
-export default App;
+export default App; 

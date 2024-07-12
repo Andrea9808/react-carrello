@@ -18,7 +18,7 @@ const TotalBox = () => {
     const { total} = useGlobalContext();
   
     return (
-      <section className="text-center m-5">
+      <section className="text-center my-5">
         <div className="card" style={cardStyle}>
           <header className="card-header">
             <h4>Carrello</h4>

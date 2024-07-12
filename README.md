@@ -1,6 +1,8 @@
 ## Andrea Store
 Benvenuto su Andrea Store! Questa è una semplice applicazione dimostrativa di e-commerce per gestire un carrello virtuale basata su React.js.
 
+Per visualizzare il progetto : https://andrea-cart.netlify.app/
+
 ## Funzionalità Principali 
 - Aggiunta, rimozione e modifica della quantità degli articoli nel carrello.
 - Calcolo del costo totale degli articoli nel carrello.

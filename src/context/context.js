@@ -6,7 +6,9 @@ import {
     DATA_FETCHING_SUCCESS, 
     DATA_FETCHING_ERROR,
     SVUOTA_CARRELLO,
-    DELETE_ITEM
+    DELETE_ITEM,
+    AUMENTA_QTY,
+    DIMINUISCI_QTY
  } from "./actions";
 
 const url = "https://react--course-api.herokuapp.com/api/v1/data/cart";
@@ -34,6 +36,18 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SVUOTA_CARRELLO });
   }
 
+  // aumenta la quantità di un item
+  const addQty = (_id) => {
+    dispatch({ type: AUMENTA_QTY, payload: _id });
+  }
+
+  // diminuisce la quantità di un item
+    const removeQty = (_id) => {
+        dispatch({ type: DIMINUISCI_QTY, payload: _id });
+    }
+
+ 
+
     
 
   useEffect(() => {
@@ -49,11 +63,18 @@ const AppProvider = ({ children }) => {
     fetchData();
   }, []);
 
+
+  useEffect(() => {
+    dispatch({ type: "COSTO_TOTALE" });
+  }, [state.products]);
+
   return (
     <AppContext.Provider value={{ 
         ...state, 
         deleteItem,
-        deleteAll
+        deleteAll,
+        addQty,
+        removeQty
     }}>
       {children}
     </AppContext.Provider>

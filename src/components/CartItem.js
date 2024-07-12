@@ -7,6 +7,9 @@ import { useGlobalContext } from '../context/context';
 const CartItem = ({ _id, name, image, price }) => {
   // const prova = useGlobalContext();
   // console.log(prova);
+
+  const { deleteItem } = useGlobalContext();
+
   return (
     <article className='my-4 text-center cart-item'>
       <div className='row align-items-center'>
@@ -31,7 +34,7 @@ const CartItem = ({ _id, name, image, price }) => {
           <h6 className='cart-item-price'>{price}€</h6>
         </div>
         <div className='col-12 col-md-2'>
-          <button className='btn btn-danger btn-sm'>
+          <button onClick={()=> deleteItem(_id)} className='btn btn-danger btn-sm'>
             <MdDelete />
           </button>
         </div>

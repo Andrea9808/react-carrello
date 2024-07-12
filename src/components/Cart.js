@@ -7,6 +7,7 @@ import { useGlobalContext } from '../context/context';
 const Cart = () => {
 
   const { products} = useGlobalContext();
+  const {deleteAll} = useGlobalContext();
  
 
   return (
@@ -15,7 +16,7 @@ const Cart = () => {
         <div className='col-12'>
           <div className='d-flex justify-content-between align-items-center custom-gap'>
             <h4>Carrello</h4>
-            <button className='btn btn-danger'>
+            <button onClick={deleteAll} className='btn btn-danger'>
             <span className='mx-2 d-none d-lg-inline-block'>Rimuovi tutto dal carrello</span>
             <MdRemoveShoppingCart />
             </button>

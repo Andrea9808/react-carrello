@@ -24,10 +24,12 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // cancella un singolo item
   const deleteItem = (_id) => {
     dispatch({ type: DELETE_ITEM, payload: _id });
   }
 
+  // cancella tutti gli item
   const deleteAll = () => {
     dispatch({ type: SVUOTA_CARRELLO });
   }
@@ -48,7 +50,11 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state }}>
+    <AppContext.Provider value={{ 
+        ...state, 
+        deleteItem,
+        deleteAll
+    }}>
       {children}
     </AppContext.Provider>
   );

@@ -2,9 +2,13 @@ import React from 'react';
 import '../Cart.css';
 import { MdRemoveShoppingCart } from 'react-icons/md';
 import CartItem from './CartItem';
-import products from '../products';
+import { useGlobalContext } from '../context/context';
 
 const Cart = () => {
+
+  const { products} = useGlobalContext();
+ 
+
   return (
     <section className='text-center' style={{ margin: '2rem' }}>
       <div className='row'>

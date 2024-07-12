@@ -1,7 +1,10 @@
 import React from "react";
 import "../TotalBox.css";
+import { useGlobalContext } from "../context/context";
 
 const TotalBox = () => {
+
+  //stile del carrello
     const cardStyle = {
       width: '400px',
       margin: '0 auto',
@@ -10,6 +13,8 @@ const TotalBox = () => {
       border: '1px solid #ccc',
       borderRadius: '10px'
     };
+
+    const { total} = useGlobalContext();
   
     return (
       <section className="text-center">
@@ -18,7 +23,7 @@ const TotalBox = () => {
             <h4>Carrello</h4>
           </header>
           <div className="card-content">
-            <h4>0 €</h4>
+            <h4>{total} €</h4>
           </div>
           <footer className="card-footer">
             <button className="button">Checkout</button>

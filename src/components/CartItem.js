@@ -1,9 +1,12 @@
 import React from 'react';
 import { MdDelete } from 'react-icons/md';
 import { BiPlus, BiMinus } from 'react-icons/bi';
-import '../CartItem.css'; // Importa il file CSS per i dettagli stilistici
+import '../CartItem.css';
+import { useGlobalContext } from '../context/context';
 
 const CartItem = ({ _id, name, image, price }) => {
+  // const prova = useGlobalContext();
+  // console.log(prova);
   return (
     <article className='my-4 text-center cart-item'>
       <div className='row align-items-center'>
@@ -18,14 +21,14 @@ const CartItem = ({ _id, name, image, price }) => {
             <button className='btn btn-sm btn-outline-secondary'>
               <BiMinus />
             </button>
-            <span className='mx-2'>1</span> {/* Qui puoi usare una variabile di stato per la quantità */}
+            <span className='mx-2'>1</span> 
             <button className='btn btn-sm btn-outline-secondary'>
               <BiPlus />
             </button>
           </div>
         </div>
         <div className='col-6 col-md-2'>
-          <h6 className='cart-item-price'>{price}</h6>
+          <h6 className='cart-item-price'>{price}€</h6>
         </div>
         <div className='col-12 col-md-2'>
           <button className='btn btn-danger btn-sm'>

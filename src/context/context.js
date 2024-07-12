@@ -8,7 +8,10 @@ import {
     SVUOTA_CARRELLO,
     DELETE_ITEM,
     AUMENTA_QTY,
-    DIMINUISCI_QTY
+    DIMINUISCI_QTY,
+    COSTO_TOTALE,
+    CONTATORE
+
  } from "./actions";
 
 const url = "https://react--course-api.herokuapp.com/api/v1/data/cart";
@@ -49,7 +52,6 @@ const AppProvider = ({ children }) => {
  
 
     
-
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: DATA_FETCHING_STARTED });
@@ -65,7 +67,8 @@ const AppProvider = ({ children }) => {
 
 
   useEffect(() => {
-    dispatch({ type: "COSTO_TOTALE" });
+    dispatch({ type: COSTO_TOTALE });
+    dispatch({ type: CONTATORE });
   }, [state.products]);
 
   return (

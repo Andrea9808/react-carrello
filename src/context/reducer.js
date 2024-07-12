@@ -6,7 +6,8 @@ import {
   DELETE_ITEM,
   AUMENTA_QTY,
   DIMINUISCI_QTY,
-  COSTO_TOTALE 
+  COSTO_TOTALE,
+  CONTATORE 
 } from "./actions";
 
 const reducer = (state, {type, payload}) => {
@@ -65,6 +66,17 @@ const reducer = (state, {type, payload}) => {
         }, 0)
       }
     }
+
+    if(type === CONTATORE){
+      return {
+        ...state,
+        itemCounter: state.products.reduce((total, item) => {
+          return total + item.qty
+        }, 0)
+      }
+    }
+
+
 
   return state;
 };

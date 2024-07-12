@@ -1,8 +1,12 @@
 import React from 'react';
 import logo from '../logo.jpeg';
 import { HiShoppingCart } from 'react-icons/hi';
+import { useGlobalContext } from '../context/context';
 
 const Navbar = () => {
+
+  const {itemCounter} = useGlobalContext();
+
   return (
     <nav className="navbar navbar-light bg-dark d-flex align-items-center ">
       <a className="navbar-brand text-white" href="#">
@@ -18,7 +22,7 @@ const Navbar = () => {
       <div>
         <button className="btn btn-outline-light mx-2">
           <HiShoppingCart />
-          <span className="badge bg-danger ms-1">0</span>
+          {itemCounter > 0 && <span className="badge bg-danger ms-1">{itemCounter}</span>}
         </button>
       </div>
     </nav>
